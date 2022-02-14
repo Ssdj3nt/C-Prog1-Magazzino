@@ -14,6 +14,20 @@ struct oggetto
     costo euro;
 };//Struct per contenere i tipi di dati del mio magazzino.
 typedef struct oggetto Oggetto;//La Struct oggetto viene passata alla variabile STRUCT Oggetto.
+struct giorno
+{
+    Oggetto g1[20];
+    Oggetto g2[20];
+    Oggetto g3[20];
+    Oggetto g4[20];
+    Oggetto g5[20];
+    Oggetto g6[20];
+    Oggetto g7[20];
+    Oggetto g8[20];
+    Oggetto g9[20];
+    Oggetto g10[20];
+
+};//Struct giorno di Struct di Oggetto.
 void in_scorta(Oggetto merce[20]);//Funzione che visualizza la disponibilità e l'indisponibilità della merce in magazzino.
 void sel_giorno(Oggetto merce[20]);//Funzione che permette di scegliere il giorno interessato in un periodo di 10 giorni.
 void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acquistati e nello stesso momento generando
