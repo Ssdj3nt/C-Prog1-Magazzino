@@ -20,6 +20,7 @@ void acquisti(Oggetto merce[20]);
 
 void main()
 {
+    srand((unsigned int) time(0));
     Oggetto merce[20]=
             {
                     {1,"Samsung","Tv 55 pollici 8K",100,570.0F},
@@ -67,32 +68,32 @@ void main()
 }
 void in_scorta(Oggetto merce[20])
 {
-    int i,rn;
+    int i;
+    int nr;
     int terminato=FALSE;
     printf("\n///////////////////////////////////////////////////////////////////////////////////////\n");
 
-    rn=rand()%20;
-    if(merce[rn].qty_stored >= 1)
     {
         for(i=0;i<4;i++)
         {
-            printf("\n|Codice:%d|--|Merce: %s|--|Spec: %s|--|Qty: %d|--|Prezzo: %f euro|\n",merce[rn].prod_cod,merce[rn].name,merce[rn].spec,merce[rn].qty_stored,merce[rn].euro);
+            nr=rand()%20;
+            if(merce[nr].qty_stored >=1)
+                printf("\n|Codice:%d|--|Merce: %s|--|Spec: %s|--|Qty: %d|--|Prezzo: %f euro|\n",merce[nr].prod_cod,merce[nr].name,merce[nr].spec,merce[nr].qty_stored,merce[nr].euro);
         }
     }
-    else
-    {
-        for(i=0;i<19;i++)
-        {
-            if(merce[i].qty_stored==0)
-                terminato=TRUE;
-            else
-                terminato=FALSE;
-        }
-    }
-        if(terminato==TRUE)
-            printf("\n\n/////////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!//////////////\n\n");
 
+    for(i=0;i<19;i++)
+    {
+        if(merce[i].qty_stored==0)
+            terminato=TRUE;
+        else
+            terminato=FALSE;
+    }
+
+    if(terminato==TRUE)
+        printf("\n\n/////////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!//////////////\n\n");
 }
+
 void sel_giorno(enum giorno giorno)
 {
 
