@@ -27,7 +27,7 @@ struct giorno
     Oggetto g9[20];
     Oggetto g10[20];
 
-};//Struct giorno di Struct di Oggetto.
+};//Struct giorno di Struct di Oggetto,ogni giorno contiene la sua struct,per memorizzare giorno per giorno le vendite e lo stock.
 void in_scorta(Oggetto merce[20]);//Funzione che visualizza la disponibilità e l'indisponibilità della merce in magazzino.
 void sel_giorno(Oggetto merce[20]);//Funzione che permette di scegliere il giorno interessato in un periodo di 10 giorni.
 void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acquistati e nello stesso momento generando
