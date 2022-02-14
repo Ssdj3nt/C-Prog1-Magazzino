@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define TRUE 1
-#define FALSE 0
+#define False 0
+#define True 1
 
 enum giorno {g1,g2,g3,g4,g5,g6,g7,g8,g9};
 typedef int costo;
@@ -72,28 +72,30 @@ void in_scorta(Oggetto merce[20])
 {
     int i;
     int nr;
-    int terminato=FALSE;
+    int x=False;
     printf("\n///////////////////////////////////////////////////////////////////////////////////////\n");
 
+    for(i=0;i<4;i++)
     {
-        for(i=0;i<4;i++)
+        nr=rand()%20;
+        if(merce[nr].qty_stored >= 1)
         {
-            nr=rand()%20;
-            if(merce[nr].qty_stored >=1)
-                printf("\n|Codice:%d|--|Merce: %s|--|Spec: %s|--|Qty: %d|--|Prezzo: %d euro|\n",merce[nr].prod_cod,merce[nr].name,merce[nr].spec,merce[nr].qty_stored,merce[nr].euro);
+            printf("\n|Prod_cod:%d|--|%s|--|Spec: %s|--|Qty: %d|--|Prezzo: %d Euro|\n",merce[nr].prod_cod,merce[nr].name,merce[nr].spec,merce[nr].qty_stored,merce[nr].euro);
         }
     }
 
-    for(i=0;i<19;i++)
+    for(i=0;i<20;i++)
     {
-        if(merce[i].qty_stored==0)
-            terminato=TRUE;
+        if(merce[i].qty_stored == 0)
+        {
+            x=True;
+        }
         else
-            terminato=FALSE;
+            x=False;
     }
 
-    if(terminato==TRUE)
-        printf("\n\n/////////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!//////////////\n\n");
+    if(x==True)
+        printf("\n\n//////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!///////////\n\n");
 }
 void sel_giorno(enum giorno giorno)
 {
@@ -108,25 +110,14 @@ void acquisti(Oggetto merce[20])
     while(merce[i].qty_stored >= 0 && i<=19)
         {
             ar=rand()%20;
-            if(merce[i].qty_stored<ar && merce[i].qty_stored>0 )
+            if(merce[i].qty_stored >=1 && merce[i].qty_stored>=ar && ar!=0)
             {
-                printf("\n|Codice:%2d|--|Merce: %s|--|Qty: %d|--|Prezzo: %d euro|\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro);
-                i++;
-            }
-            else if(merce[i].qty_stored==0)
-            {
-                printf("\n|Codice:%2d|--|Merce: %s| QUESTO PRODOTTO E' TERMINATO!\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro);
+                merce[i].qty_stored = merce[i].qty_stored-ar;
+                guadagni_parz=(ar*(merce[i].euro));
+                printf("\n|Prod_cod: %d|--|%s|--|Qty: %d|--|Prezzo: %d euro|--|Guadagno per articolo: %d Euro|\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro,guadagni_parz);
                 i++;
             }
             else
-            {
-                if(merce[i].qty_stored>0 && merce->qty_stored>ar)
-                {
-                    merce[i].qty_stored = merce[i].qty_stored-ar;
-                    guadagni_parz=(ar*(merce[i].euro));
-                    printf("\n|Codice:%2d|--|Merce: %s|--|Qty: %d|--|Prezzo: %d euro|--|Guadagno delle vendite per articolo: %d Euro|:\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro,guadagni_parz);
-                    i++;
-                }
-            }
+                i++;
         }
-    }
+}
