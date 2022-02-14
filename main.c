@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#define False 0
-#define True 1
+#include <stdio.h>//Libreria standard del C I/O.
+#include <stdlib.h>//Libreria usata per la generazione di numeri pseudocasuali.
+#include <time.h> //Libreria usata per inizializzare il seme per la generazione di numeri pseudocasuali.
+#define False 0//Ri-definizione del valore 0 con False.
+#define True 1//Ri-definizione del valore 1 con True.
 
-enum giorno {g1,g2,g3,g4,g5,g6,g7,g8,g9};
 typedef int costo;
 struct oggetto
 {
@@ -13,11 +12,12 @@ struct oggetto
     char *spec;
     int qty_stored;
     costo euro;
-};
-typedef struct oggetto Oggetto;
-void in_scorta(Oggetto merce[20]);
-void sel_giorno(enum giorno giorno);
-void acquisti(Oggetto merce[20]);
+};//Struct per contenere i tipi di dati del mio magazzino.
+typedef struct oggetto Oggetto;//La Struct oggetto viene passata alla variabile STRUCT Oggetto.
+void in_scorta(Oggetto merce[20]);//Funzione che visualizza la disponibilità e l'indisponibilità della merce in magazzino.
+void sel_giorno(Oggetto merce[20]);//Funzione che permette di scegliere il giorno interessato in un periodo di 10 giorni.
+void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acquistati e nello stesso momento generando
+* numeri casuali effettua l'acquisto facendo la differenza tra quantità disponibile e il numero casuale.*/
 
 void main()
 {
@@ -45,28 +45,25 @@ void main()
                     {19,"Western Digital","1Tb storage",100,50},
                     {20,"Samsung 980 Pro","SSD 1TB",100,250}};
     int sel;
-    printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n");  //L'uso del nome 'SAP' e il suo marchio registrato sono utilizzati solo per scopi dimostrativi a fini didattici.
-    printf("\n-Qui potrai visualizzare lo stock ed il venduto giornaliero e dei 10 giorni successivi.\n");
+    printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
+           "\n-Qui potrai visualizzare lo stock ed il venduto giornaliero e dei 10 giorni successivi.\n");//L'uso del nome 'SAP' e il suo marchio registrato sono utilizzati solo per scopi dimostrativi a fini didattici.
 
-    do
-    {
-        printf("\n///////////////////////////////////////////////////////////////////////////////////////\n");
-        printf("\nDigita il numero corrispondente all'operazione da effettuare.");
-        printf("\n\n0.Visualizza le Scorte.\n1.Visualizza il venduto.\n2.Seleziona il giorno.\n3.Esci.\n\nScelta n:");
-        scanf("%d",&sel);
+           do
+           {
+               printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n\n0.Seleziona il giorno.\n1.Esci.\n\nScelta n:");
+               scanf("%d",&sel);
 
-        switch (sel)
-        {
-            case 0:in_scorta(merce);break;
-            case 1:acquisti(merce);break;
-            case 2:sel_giorno;break;
-            case 3:printf("\nChiusura in corso...\n");break;
-            default:printf("\nErrore.\n");break;
-        }
-    }
-    while(sel!=3);
+               switch (sel)
+               {
+                   case 0:sel_giorno(merce);break;
+                   case 1:printf("\nChiusura in corso...\n");break;
+                   default:printf("\nErrore.\n");break;
+               }
+           }
+           while(sel!=1);
 
-}
+}/*Main in cui vengono dichiarati i valori e le informazioni delle variabili della struct.*/
 
 void in_scorta(Oggetto merce[20])
 {
@@ -97,15 +94,116 @@ void in_scorta(Oggetto merce[20])
     if(x==True)
         printf("\n\n//////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!///////////\n\n");
 }
-void sel_giorno(enum giorno giorno)
-{
 
+void sel_giorno(Oggetto merce[20])
+{
+    int giorno,operazione;
+    printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+           "\nSelezionare un giorno da 0=1 Febbraio 2022 al 9=10 Febbraio 2022:\n\nScelta n:");
+    scanf("%d",&giorno);
+    switch(giorno)
+    {
+        case 0:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n1 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 1:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n2 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 2:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n3 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 3:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n4 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 4:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n5 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 5:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n6 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 6:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n7 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 7:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n8 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 8:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n9 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        case 9:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
+                      "\n10 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+            scanf("%d",&operazione);
+            switch (operazione)
+            {
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
+                default:printf("Errore!!!");break;
+            }}break;
+        default:
+            printf("ERRORE!!!");break;
+    }
 }
+
 void acquisti(Oggetto merce[20])
 {
     int i=0;
     int ar;
-    int guadagni_parz=0;
+    int guadagni_parz;
+    int venduti;
 
     while(merce[i].qty_stored >= 0 && i<=19)
         {
@@ -114,7 +212,8 @@ void acquisti(Oggetto merce[20])
             {
                 merce[i].qty_stored = merce[i].qty_stored-ar;
                 guadagni_parz=(ar*(merce[i].euro));
-                printf("\n|Prod_cod: %d|--|%s|--|Qty: %d|--|Prezzo: %d euro|--|Guadagno per articolo: %d Euro|\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro,guadagni_parz);
+                venduti=ar;
+                printf("\n|Prod_cod: %d|--|%s|--|Qty: %d|--|Prezzo: %d euro|--|Venduti: %d|--|Guadagno: %d Euro|\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro,venduti,guadagni_parz);
                 i++;
             }
             else
