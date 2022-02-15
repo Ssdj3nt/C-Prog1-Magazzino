@@ -207,7 +207,15 @@ void sel_giorno(Oggetto merce[20])
         default:
             printf("ERRORE!!!");break;
     }
-}
+}/*Qui sono stati implementati degli switch.
+ * Il primo switch permette all'utente di scegliere il giorno,
+ * con le sottoporzioni di codice ovvero con gli switch innestati, l'utente può scegliere le operazioni da effettuare per quel giorno.*/
+
+/* Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse. Non viene implementato un vero e proprio database dati;
+ * cioè: Se si seleziona il primo giorno e vengono effettuate delle vendite il giorno sccessivo visualizzerà lo stock aggiornato.
+ * Ma se si seleziona per esempio il 6 giorno e si simulano delle vendite, i giorni precedenti ovviamente conterranno erroneamente lo stock del giorno dopo,
+ * il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno 1, ha lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
+ * la gestione del magazzino va fatta dal giorno 1.*/
 
 void acquisti(Oggetto merce[20])
 {
