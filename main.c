@@ -7,9 +7,6 @@
 
 #include <time.h> //Libreria usata per inizializzare il seme per la generazione di numeri pseudocasuali.
 
-#define False 0//Ri-definizione del valore 0 con False.
-
-#define True 1//Ri-definizione del valore 1 con True.
 
 typedef int costo;//Creazione di un nuovo tipo di dati ''costo'' dichiarato come intero.
 
@@ -58,7 +55,7 @@ void main()
                     {20,"Samsung 980 Pro","SSD 1TB",100,250}};
     /*I dati vengono inseriti nella struct*/
 
-    int sel;
+    int sel;//Variabile usata per la selezione nel menu contestuale.
     printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
            "\n-Qui potrai visualizzare lo stock ed il venduto giornaliero e dei 10 giorni successivi.\n");//L'uso del nome 'SAP' e il suo marchio registrato sono utilizzati solo per scopi dimostrativi a fini didattici.
 
@@ -84,7 +81,7 @@ void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di inp
 {
     int i;//Variabile usarata per iterare.
     int nr;//Dischiarazione di una variabile di tipo intero che conterrà un numero pseudocasuale.
-    int x=False;//Dichiarazione di una variabile che ci consente con un ciclo iterativo di capire se tutti i prodotti sono esauriti.
+    int x=0;//Dichiarazione di una variabile che ci consente con un ciclo iterativo di capire se tutti i prodotti sono esauriti.
     printf("\n///////////////////////////////////////////////////////////////////////////////////////\n");
 
     for(i=0;i<4;i++)
@@ -100,17 +97,14 @@ void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di inp
     {
         if(merce[i].qty_stored == 0)
         {
-            x=True;
+            x++;
         }
-        else
-            x=False;
     }//Ciclo iterativo, che ci permette ad ogni passo di stabilire se quel prodotto è esaurito o meno.
 
-    if(x==True)
+    if(x==20)
         printf("\n\n//////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!///////////\n\n");
     //Se tutti i prodotti sono finiti viene visualizzato un messaggio di avviso.
 }
-
 
 void sel_giorno(Oggetto merce[20])
 {
