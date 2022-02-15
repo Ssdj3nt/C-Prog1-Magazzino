@@ -238,12 +238,15 @@ void acquisti(Oggetto merce[20])
 }
 
 /* NOTA BENE.
-* Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse di un magazzino, non viene implementato un vero e proprio database dati;
-* cioè: Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati,
-* e di riportare nei giorni successivi lo stock/vendite del giorno precedente.
-* Tecnicamente i dati di input del giorno successivo sono i dati d'output del giorno precedente.
+* Siccome Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati/pre-inseriti in modo elementare,
+* Tecnicamente i dati d'input del giorno successivo sono i dati d'output del giorno precedente.
 * Da ciò ne deriva:
-* Se si seleziona il primo giorno e vengono effettuate delle vendite, il giorno successivo visualizzerà lo stock aggiornato.
-* Ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterrà erroneamente lo stock del 6° giorno,
-* il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto), abbia lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
-* la gestione del magazzino va fatta in ordine crescente.*/
+* Se si seleziona un giorno e vengono effettuate delle vendite, il giorno successivo visualizzerà lo stock aggiornato rispetto alle vendite del giorno prima,
+* ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterranno erroneamente lo stock dei giorni successivi, il che nella realtà sarebbe assurdo;
+* Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto o primo giorno = 1 Febbraio 2022), abbia lo stock dei prodotti a (QTY 100 per ogni prodotto),
+* e che quello sarà il primo giorno di attività del magazzino, la gestione del magazzino andrà fatta soltanto in ordine crescente.
+* Per rispettare le specifiche del proggetto se si inizia dal 1 Febbraio 2022,esso arriverà al 10 Febbraio 2022;
+* Altrimenti scegliendo un giorno che non sia il 1 Febbraio 2022, la gestione verrà fatta dalla nostra scelta(sottoporzione) fino al 10 Febbraio 2022.
+ * */
+
+//FRANCESCO PORRITIELLO.
