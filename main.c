@@ -1,10 +1,18 @@
+/* Questo programma scritto in C permette di simulare un magazzino con 20 prodotti,
+ * di gestirne e visualizzare stock e vendite per un periodo di 10 giorni.*/
+
 #include <stdio.h>//Libreria standard del C I/O.
+
 #include <stdlib.h>//Libreria usata per la generazione di numeri pseudocasuali.
+
 #include <time.h> //Libreria usata per inizializzare il seme per la generazione di numeri pseudocasuali.
+
 #define False 0//Ri-definizione del valore 0 con False.
+
 #define True 1//Ri-definizione del valore 1 con True.
 
-typedef int costo;
+typedef int costo;//Creazione di un nuovo tipo di dati ''costo'' dichiarato come intero.
+
 struct oggetto
 {
     int prod_cod;
@@ -13,10 +21,13 @@ struct oggetto
     int qty_stored;
     costo euro;
 };//Struct per contenere i tipi di dati del mio magazzino.
-typedef struct oggetto Oggetto;//La Struct oggetto viene passata alla variabile STRUCT Oggetto.
+
+typedef struct oggetto Oggetto;//La Struct ''oggetto'' viene passata alla variabile STRUCT Oggetto.
 
 void in_scorta(Oggetto merce[20]);//Funzione che visualizza la disponibilità e l'indisponibilità della merce in magazzino.
+
 void sel_giorno(Oggetto merce[20]);//Funzione che permette di scegliere il giorno interessato in un periodo di 10 giorni.
+
 void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acquistati e nello stesso momento generando
 * numeri casuali effettua l'acquisto facendo la differenza tra quantità disponibile e il numero casuale.*/
 
@@ -45,6 +56,7 @@ void main()
                     {18,"Corsair RM750X","750W",100,170},
                     {19,"Western Digital","1Tb storage",100,50},
                     {20,"Samsung 980 Pro","SSD 1TB",100,250}};
+    /*I dati vengono inseriti nella struct*/
 
     int sel;
     printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
@@ -64,14 +76,15 @@ void main()
                }
            }
            while(sel!=1);
+           /*Blocco di istruzioni che ci consente di scegliere l'operazione da effettuare nel menu contestuale*/
 
 }/*Main in cui vengono dichiarati i valori e i dati delle variabili della struct.*/
 
-void in_scorta(Oggetto merce[20])
+void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di input l'array di struct per visualizzarne lo stock.
 {
-    int i;
-    int nr;
-    int x=False;
+    int i;//Variabile usarata per iterare.
+    int nr;//Dischiarazione di una variabile di tipo intero che conterrà un numero pseudocasuale.
+    int x=False;//Dichiarazione di una variabile che ci consente con un ciclo iterativo di capire se tutti i prodotti sono esauriti.
     printf("\n///////////////////////////////////////////////////////////////////////////////////////\n");
 
     for(i=0;i<4;i++)
@@ -81,7 +94,7 @@ void in_scorta(Oggetto merce[20])
         {
             printf("\n|Prod_cod:%d|--|%s|--|Spec: %s|--|Qty: %d|--|Prezzo: %d Euro|\n",merce[nr].prod_cod,merce[nr].name,merce[nr].spec,merce[nr].qty_stored,merce[nr].euro);
         }
-    }
+    }//Il progetto richiede di visualizzare meno di 5 prodotti nello stock,generando un numero casuale, si prende casualmente un prodotto dai 20 in lista.
 
     for(i=0;i<20;i++)
     {
@@ -91,11 +104,13 @@ void in_scorta(Oggetto merce[20])
         }
         else
             x=False;
-    }
+    }//Ciclo iterativo, che ci permette ad ogni passo di stabilire se quel prodotto è esaurito o meno.
 
     if(x==True)
         printf("\n\n//////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!///////////\n\n");
+    //Se tutti i prodotti sono finiti viene visualizzato un messaggio di avviso.
 }
+
 
 void sel_giorno(Oggetto merce[20])
 {
