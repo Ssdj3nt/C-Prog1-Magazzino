@@ -221,10 +221,10 @@ void acquisti(Oggetto merce[20])
     while(merce[i].qty_stored >= 0 && i<=19)
         {
             ar=rand()%20;
-            if(merce[i].qty_stored >=1 && merce[i].qty_stored>=ar && ar!=0)
+            if(merce[i].qty_stored >=1 && merce[i].qty_stored>=ar && ar!=0)//Se e solo se è possibile effettuare una vendita.
             {
-                merce[i].qty_stored = merce[i].qty_stored-ar;
-                guadagni_parz=(ar*(merce[i].euro));
+                merce[i].qty_stored = merce[i].qty_stored-ar; //Il numero generato si va a sottrarre alla quantità restante del prodotto, simulando così una vendita.
+                guadagni_parz=(ar*(merce[i].euro));//Il numero casuale quale numero di vendite viene moltiplicato per il costo.
                 venduti=ar;
                 printf("\n|Prod_cod: %d|--|%s|--|Qty: %d|--|Prezzo: %d euro|--|Venduti: %d|--|Guadagno: %d Euro|\n",merce[i].prod_cod,merce[i].name,merce[i].qty_stored,merce[i].euro,venduti,guadagni_parz);
                 i++;
