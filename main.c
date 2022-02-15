@@ -239,7 +239,7 @@ void acquisti(Oggetto merce[20])
 
 /* NOTA BENE.
 * Siccome Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati/pre-inseriti in modo elementare,
-* Tecnicamente i dati d'input del giorno successivo sono i dati d'output del giorno precedente.
+* tecnicamente i dati d'input del giorno successivo sono i dati d'output del giorno precedente.
 * Da ciò ne deriva:
 * Se si seleziona un giorno e vengono effettuate delle vendite, il giorno successivo visualizzerà lo stock aggiornato rispetto alle vendite del giorno prima,
 * ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterranno erroneamente lo stock dei giorni successivi, il che nella realtà sarebbe assurdo;
@@ -247,6 +247,6 @@ void acquisti(Oggetto merce[20])
 * e che quello sarà il primo giorno di attività del magazzino, la gestione del magazzino andrà fatta soltanto in ordine crescente.
 * Per rispettare le specifiche del proggetto se si inizia dal 1 Febbraio 2022,esso arriverà al 10 Febbraio 2022;
 * Altrimenti scegliendo un giorno che non sia il 1 Febbraio 2022, la gestione verrà fatta dalla nostra scelta(sottoporzione) fino al 10 Febbraio 2022.
- * */
+*/
 
 //FRANCESCO PORRITIELLO.
