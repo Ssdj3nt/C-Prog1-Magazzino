@@ -1,7 +1,6 @@
 #include <stdio.h>//Libreria standard del C I/O.
 #include <stdlib.h>//Libreria usata per la generazione di numeri pseudocasuali.
 #include <time.h> //Libreria usata per inizializzare il seme per la generazione di numeri pseudocasuali.
-#include <string.h>
 #define False 0//Ri-definizione del valore 0 con False.
 #define True 1//Ri-definizione del valore 1 con True.
 
@@ -15,43 +14,6 @@ struct oggetto
     costo euro;
 };//Struct per contenere i tipi di dati del mio magazzino.
 typedef struct oggetto Oggetto;//La Struct oggetto viene passata alla variabile STRUCT Oggetto.
-Oggetto merce[20]=
-        {
-                {1,"Samsung","Tv 55 pollici 8K",100,570},
-                {2,"Edison","Decoder DVB-T2",100,20},
-                {3,"IPhone 13 PRO MAX","512gb,6gb ram",100,1250},
-                {4,"AirPods","Chip H1",100,250},
-                {5,"Apple Watch 7","Res 396×484 pixel",100,400},
-                {6,"Huawei Matebook 13","Ryzen 7 3700U,16gb ram",100,750},
-                {7,"HP Omen 25L","10th Gen Intel Core i5,NVIDIA GeForce GTX 1650",100,800},
-                {8,"Razer Orochi","4000DPI",100,75},
-                {9,"Logitech G810 Orion Spectrum","Romer-G Switch,Rgb",100,100},
-                {10,"Creative Pebble v3","Bluetooth",100,40},
-                {11,"Xiaomi Mi 34 Curved","3440x1440 144hz 1ms",100,470},
-                {12,"Kingston Hyper X Predator","32gb 4x4 3600mhz CL17",100,250},
-                {13,"ASUS RTX 3080 TUF","10GB VRAM",100,2500},
-                {14,"MSI B500 Mortar","AM4 chipset",100,140},
-                {15,"AMD Ryzen 5600X","6/12 Thread,4.65GHZ",100,370},
-                {16,"Deepcool Macube 110","Micro-Atx",100,70},
-                {17,"Deepcool RM120","120mm RGB",100,50},
-                {18,"Corsair RM750X","750W",100,170},
-                {19,"Western Digital","1Tb storage",100,50},
-                {20,"Samsung 980 Pro","SSD 1TB",100,250}};//Dichiarazione globale array di struct.
-
-struct giorno
-{
-   Oggetto g1[20];
-   Oggetto g2[20];
-   Oggetto g3[20];
-   Oggetto g4[20];
-   Oggetto g5[20];
-   Oggetto g6[20];
-   Oggetto g7[20];
-   Oggetto g8[20];
-   Oggetto g9[20];
-   Oggetto g10[20];
-}gg;//Struct giorno di Struct di Oggetto,ogni giorno contiene la sua struct, per memorizzare giorno per giorno le vendite e lo stock.
-
 
 void in_scorta(Oggetto merce[20]);//Funzione che visualizza la disponibilità e l'indisponibilità della merce in magazzino.
 void sel_giorno(Oggetto merce[20]);//Funzione che permette di scegliere il giorno interessato in un periodo di 10 giorni.
@@ -61,16 +23,28 @@ void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acq
 void main()
 {
     srand((unsigned int) time(0));
-    memcpy(gg.g1,merce,sizeof merce);
-    memcpy(gg.g2,merce,sizeof merce);
-    memcpy(gg.g3,merce,sizeof merce);
-    memcpy(gg.g4,merce,sizeof merce);
-    memcpy(gg.g5,merce,sizeof merce);
-    memcpy(gg.g6,merce,sizeof merce);
-    memcpy(gg.g7,merce,sizeof merce);
-    memcpy(gg.g8,merce,sizeof merce);
-    memcpy(gg.g9,merce,sizeof merce);
-    memcpy(gg.g10,merce,sizeof merce);
+    Oggetto merce[20]=
+            {
+                    {1,"Samsung","Tv 55 pollici 8K",100,570},
+                    {2,"Edison","Decoder DVB-T2",100,20},
+                    {3,"IPhone 13 PRO MAX","512gb,6gb ram",100,1250},
+                    {4,"AirPods","Chip H1",100,250},
+                    {5,"Apple Watch 7","Res 396×484 pixel",100,400},
+                    {6,"Huawei Matebook 13","Ryzen 7 3700U,16gb ram",100,750},
+                    {7,"HP Omen 25L","10th Gen Intel Core i5,NVIDIA GeForce GTX 1650",100,800},
+                    {8,"Razer Orochi","4000DPI",100,75},
+                    {9,"Logitech G810 Orion Spectrum","Romer-G Switch,Rgb",100,100},
+                    {10,"Creative Pebble v3","Bluetooth",100,40},
+                    {11,"Xiaomi Mi 34 Curved","3440x1440 144hz 1ms",100,470},
+                    {12,"Kingston Hyper X Predator","32gb 4x4 3600mhz CL17",100,250},
+                    {13,"ASUS RTX 3080 TUF","10GB VRAM",100,2500},
+                    {14,"MSI B500 Mortar","AM4 chipset",100,140},
+                    {15,"AMD Ryzen 5600X","6/12 Thread,4.65GHZ",100,370},
+                    {16,"Deepcool Macube 110","Micro-Atx",100,70},
+                    {17,"Deepcool RM120","120mm RGB",100,50},
+                    {18,"Corsair RM750X","750W",100,170},
+                    {19,"Western Digital","1Tb storage",100,50},
+                    {20,"Samsung 980 Pro","SSD 1TB",100,250}};
 
     int sel;
     printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
@@ -136,8 +110,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g1);break;
-                case 1:acquisti(gg.g1);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 1:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -145,8 +119,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g2);break;
-                case 1:acquisti(gg.g2);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 2:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -154,8 +128,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g3);break;
-                case 1:acquisti(gg.g3);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 3:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -163,8 +137,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g4);break;
-                case 1:acquisti(gg.g4);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 4:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -172,8 +146,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g5);break;
-                case 1:acquisti(gg.g5);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 5:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -181,8 +155,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g6);break;
-                case 1:acquisti(gg.g6);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 6:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -190,8 +164,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g7);break;
-                case 1:acquisti(gg.g7);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 7:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -199,8 +173,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g8);break;
-                case 1:acquisti(gg.g8);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 8:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -208,8 +182,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g9);break;
-                case 1:acquisti(gg.g9);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         case 9:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
@@ -217,8 +191,8 @@ void sel_giorno(Oggetto merce[20])
             scanf("%d",&operazione);
             switch (operazione)
             {
-                case 0:in_scorta(gg.g10);break;
-                case 1:acquisti(gg.g10);break;
+                case 0:in_scorta(merce);break;
+                case 1:acquisti(merce);break;
                 default:printf("Errore!!!");break;
             }}break;
         default:
