@@ -30,7 +30,7 @@ void acquisti(Oggetto merce[20]);/*Funzione che simula una lista di prodotti acq
 
 void main()
 {
-    srand((unsigned int) time(0));
+    srand((unsigned int) time(0));//Inizializzazione del seme per la generazione di numeri pseudocasuali.
     Oggetto merce[20]=
             {
                     {1,"Samsung","Tv 55 pollici 8K",100,570},
@@ -52,8 +52,8 @@ void main()
                     {17,"Deepcool RM120","120mm RGB",100,50},
                     {18,"Corsair RM750X","750W",100,170},
                     {19,"Western Digital","1Tb storage",100,50},
-                    {20,"Samsung 980 Pro","SSD 1TB",100,250}};
-    /*I dati vengono inseriti nella struct*/
+                    {20,"Samsung 980 Pro","SSD 1TB",100,250}};/*I dati vengono inseriti nella struct*/
+
 
     int sel;//Variabile usata per la selezione nel menu contestuale.
     printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
@@ -72,8 +72,8 @@ void main()
                    default:printf("\nErrore.\n");break;
                }
            }
-           while(sel!=1);
-           /*Blocco di istruzioni che ci consente di scegliere l'operazione da effettuare nel menu contestuale*/
+           while(sel!=1);//Il while consente se la scelta non è in lista di richiedere nuovamente l'inserimento.
+           //Blocco di istruzioni che ci consente di scegliere l'operazione da effettuare nel menu contestuale*/
 
 }/*Main in cui vengono dichiarati i valori e i dati delle variabili della struct.*/
 
@@ -91,7 +91,7 @@ void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di inp
         {
             printf("\n|Prod_cod:%d|--|%s|--|Spec: %s|--|Qty: %d|--|Prezzo: %d Euro|\n",merce[nr].prod_cod,merce[nr].name,merce[nr].spec,merce[nr].qty_stored,merce[nr].euro);
         }
-    }//Il progetto richiede di visualizzare meno di 5 prodotti nello stock,generando un numero casuale, si prende casualmente un prodotto dai 20 in lista.
+    }//Il progetto richiede di visualizzare meno di 5 prodotti nello stock, generando un numero casuale, si prende casualmente un prodotto dai 20 in lista.
 
     for(i=0;i<20;i++)
     {
@@ -211,11 +211,16 @@ void sel_giorno(Oggetto merce[20])
  * Il primo switch permette all'utente di scegliere il giorno,
  * con le sottoporzioni di codice ovvero con gli switch innestati, l'utente può scegliere le operazioni da effettuare per quel giorno.*/
 
-/* Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse. Non viene implementato un vero e proprio database dati;
- * cioè: Se si seleziona il primo giorno e vengono effettuate delle vendite il giorno sccessivo visualizzerà lo stock aggiornato.
- * Ma se si seleziona per esempio il 6 giorno e si simulano delle vendite, i giorni precedenti ovviamente conterranno erroneamente lo stock del giorno dopo,
- * il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno 1, ha lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
- * la gestione del magazzino va fatta dal giorno 1.*/
+/* NOTA BENE.
+ * Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse di un magazzino, non viene implementato un vero e proprio database dati;
+ * cioè: Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati,
+ * e di riportare nei giorni successivi lo stock/vendite del giorno precedente.
+ * Tecnicamente i dati di input del giorno successivo sono i dati d'output del giorno precedente.
+ * Da ciò ne deriva:
+ * Se si seleziona il primo giorno e vengono effettuate delle vendite, il giorno sccessivo visualizzerà lo stock aggiornato.
+ * Ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterrà erroneamente lo stock del 6° giorno,
+ * il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto), abbia lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
+ * la gestione del magazzino va fatta in ordine crescente .*/
 
 void acquisti(Oggetto merce[20])
 {
