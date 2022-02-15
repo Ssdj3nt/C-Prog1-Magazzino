@@ -211,17 +211,6 @@ void sel_giorno(Oggetto merce[20])
  * Il primo switch permette all'utente di scegliere il giorno,
  * con le sottoporzioni di codice ovvero con gli switch innestati, l'utente può scegliere le operazioni da effettuare per quel giorno.*/
 
-/* NOTA BENE.
- * Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse di un magazzino, non viene implementato un vero e proprio database dati;
- * cioè: Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati,
- * e di riportare nei giorni successivi lo stock/vendite del giorno precedente.
- * Tecnicamente i dati di input del giorno successivo sono i dati d'output del giorno precedente.
- * Da ciò ne deriva:
- * Se si seleziona il primo giorno e vengono effettuate delle vendite, il giorno sccessivo visualizzerà lo stock aggiornato.
- * Ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterrà erroneamente lo stock del 6° giorno,
- * il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto), abbia lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
- * la gestione del magazzino va fatta in ordine crescente .*/
-
 void acquisti(Oggetto merce[20])
 {
     int i=0;
@@ -243,4 +232,18 @@ void acquisti(Oggetto merce[20])
             else
                 i++;
         }
+    /*Questa porzione di codice simula la vendita di una quantità casuale, aggiorna lo stock
+    e se il prodotto non è esaurito stampa al terminale tutte le informazioni sul prodotto,
+     sul venduto e sul guadagno delle vendite di quel prodotto.*/
 }
+
+/* NOTA BENE.
+* Siccome l'algoritmo simula il comportamento di un programma della gestione delle risorse di un magazzino, non viene implementato un vero e proprio database dati;
+* cioè: Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati,
+* e di riportare nei giorni successivi lo stock/vendite del giorno precedente.
+* Tecnicamente i dati di input del giorno successivo sono i dati d'output del giorno precedente.
+* Da ciò ne deriva:
+* Se si seleziona il primo giorno e vengono effettuate delle vendite, il giorno successivo visualizzerà lo stock aggiornato.
+* Ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterrà erroneamente lo stock del 6° giorno,
+* il che nella realtà sarebbe assurdo; Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto), abbia lo stock dei prodotti al suo massimo(QTY 100 per ogni prodotto),
+* la gestione del magazzino va fatta in ordine crescente.*/
