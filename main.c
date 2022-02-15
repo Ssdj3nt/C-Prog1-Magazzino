@@ -115,7 +115,7 @@ void sel_giorno(Oggetto merce[20])
     switch(giorno)
     {
         case 0:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n1 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n1 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -124,7 +124,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 1:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n2 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n2 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -133,7 +133,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 2:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n3 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n3 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -142,7 +142,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 3:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n4 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n4 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -151,7 +151,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 4:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n5 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n5 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -160,7 +160,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 5:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n6 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n6 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -169,7 +169,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 6:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n7 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n7 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -178,7 +178,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 7:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n8 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n8 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -187,7 +187,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 8:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n9 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n9 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -196,7 +196,7 @@ void sel_giorno(Oggetto merce[20])
                 default:printf("Errore!!!");break;
             }}break;
         case 9:{printf("\n///////////////////////////////////////////////////////////////////////////////////////\n"
-                      "\n10 Febbraio 2022\n\n0.Scorte\n1.Vendite.\n\nScelta n:");
+                      "\n10 Febbraio 2022\n\n0.Scorte\n1.Vendite(Simula e visualizza le vendite).\n\nScelta n:");
             scanf("%d",&operazione);
             switch (operazione)
             {
@@ -240,12 +240,10 @@ void acquisti(Oggetto merce[20])
 /* NOTA BENE.
 * Siccome Il programma è stato impostato con la concezione di effettuare vendite in modo casuale e di non usare array di struct pre-impostati/pre-inseriti in modo elementare,
 * tecnicamente i dati d'input del giorno successivo sono i dati d'output del giorno precedente.
-* Da ciò ne deriva:
-* Se si seleziona un giorno e vengono effettuate delle vendite, il giorno successivo visualizzerà lo stock aggiornato rispetto alle vendite del giorno prima,
-* ma se si seleziona per esempio il 6° giorno e si simulano o visualizzano le vendite, i giorni precedenti (es. 5° giorno) ovviamente conterranno erroneamente lo stock dei giorni successivi, il che nella realtà sarebbe assurdo;
-* Quindi dando per scontato che la capienza del giorno in esame(primo giorno scelto o primo giorno = 1 Febbraio 2022), abbia lo stock dei prodotti a (QTY 100 per ogni prodotto),
-* e che quello sarà il primo giorno di attività del magazzino, la gestione del magazzino andrà fatta soltanto in ordine crescente.
-* Per rispettare le specifiche del proggetto se si inizia dal 1 Febbraio 2022,esso arriverà al 10 Febbraio 2022;
+* Da ciò ne deriva che:
+* La gestione va inizializzata al primo giorno quale (1 Febbraio 2022).
+* La gestione del magazzino andrà fatta soltanto selezionando sempre la data successiva e mai quella precedente.
+* Per rispettare le specifiche del progetto il 1 Febbraio 2022 è il primo giorno di gestione così che esso arriverà al 10 Febbraio 2022;
 * Altrimenti scegliendo un giorno che non sia il 1 Febbraio 2022, la gestione verrà fatta dalla nostra scelta(sottoporzione) fino al 10 Febbraio 2022.
 */
 
