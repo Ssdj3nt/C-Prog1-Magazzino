@@ -93,7 +93,7 @@ void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di inp
         }
     }//Il progetto richiede di visualizzare meno di 5 prodotti nello stock, generando un numero casuale, si prende casualmente un prodotto dai 20 in lista.
 
-    for(i=0;i<20;i++)
+    for(i=0;i<19;i++)
     {
         if(merce[i].qty_stored == 0)
         {
@@ -101,7 +101,7 @@ void in_scorta(Oggetto merce[20])//Nella funzione viene passato come dati di inp
         }
     }//Ciclo iterativo, che ci permette ad ogni passo di stabilire se quel prodotto è esaurito o meno.
 
-    if(x==20)
+    if(x==19)
         printf("\n\n//////////Siamo in attesa di restock, il magazzino e' completamente vuoto!!!///////////\n\n");
     //Se tutti i prodotti sono finiti viene visualizzato un messaggio di avviso.
 }
