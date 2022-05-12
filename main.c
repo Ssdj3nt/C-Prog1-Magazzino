@@ -56,8 +56,8 @@ void main()
 
 
     int sel;//Variabile usata per la selezione nel menu contestuale.
-    printf("\n\n-Benvenuto in SAP Enterprise Resource Planning-\n-------------ELECTRONICS WAREHOUSE-------------\n"
-           "\n-Qui potrai visualizzare lo stock ed il venduto giornaliero e dei 10 giorni successivi.\n");//L'uso del nome 'SAP' e il suo marchio registrato sono utilizzati solo per scopi dimostrativi a fini didattici.
+    printf("\n\n-Benvenuto!-\n-------------ELECTRONICS WAREHOUSE-------------\n"
+           "\n-Qui potrai visualizzare lo stock ed il venduto giornaliero e dei 10 giorni successivi.\n");
 
            do
            {
