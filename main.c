@@ -246,5 +246,3 @@ void acquisti(Oggetto merce[20])
 * Per rispettare le specifiche del progetto il 1 Febbraio 2022 è il primo giorno di gestione così che esso arriverà al 10 Febbraio 2022;
 * Altrimenti scegliendo un giorno che non sia il 1 Febbraio 2022, la gestione verrà fatta dalla nostra scelta(sottoporzione) fino al 10 Febbraio 2022.
 */
-
-//FRANCESCO PORRITIELLO.
